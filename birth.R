@@ -1,0 +1,5 @@
+require(deSolve)
+bd(N0=1, bDD=70, title="Density-dependent birth")
+bd(bDD=70, title="Density-dependent birth", reportPcTotal="n", N0=80)
+bd(bDD=70, title="Density-dependent birth", elines=TRUE, arrows=FALSE)
+bd(bDD=70, title="Density-dependent birth", elines=TRUE)

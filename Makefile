@@ -17,6 +17,16 @@ include stuff.mk
 
 ## Content
 
+Sources += $(wildcard *.R)
+
+birth_response.Rout: bd.Rout birth_response.R
+size.Rout: bd.Rout size.R
+
+delay_sims.Rout: delay.Rout
+
+%.bd.Rout: bd.Rout %.R
+	$(run-R)
+
 ######################################################################
 
 ### Makestuff
@@ -27,5 +37,5 @@ include stuff.mk
 -include $(ms)/git.mk
 -include $(ms)/visual.mk
 
-# -include $(ms)/wrapR.mk
+-include $(ms)/wrapR.mk
 # -include $(ms)/oldlatex.mk
