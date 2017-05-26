@@ -12,7 +12,6 @@ target pngtarget pdftarget vtarget acrtarget: ntu.bd.Rout
 Sources = Makefile .gitignore README.md sub.mk LICENSE.md
 include sub.mk
 # include $(ms)/perl.def
--include $(ms)/os.mk
 
 ##################################################################
 
