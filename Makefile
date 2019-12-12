@@ -1,23 +1,17 @@
-# Birth_death_models
-### Hooks for the editor to set the default target
+## This is Birth_death_models, a screens project directory
+## makestuff/project.Makefile
+
 current: target
+-include target.mk
 
-target pngtarget pdftarget vtarget acrtarget: ntu.bd.Rout 
+# include makestuff/perl.def
 
-##################################################################
+######################################################################
 
+# Content
 
-# make files
-
-Sources = Makefile .ignore README.md sub.mk LICENSE.md
-include sub.mk
-
-Sources += $(ms)
-# include $(ms)/perl.def
-
-##################################################################
-
-## Content
+vim_session:
+	bash -cl "vmt"
 
 Sources += $(wildcard *.R)
 
@@ -34,8 +28,24 @@ ntu.bd.Rout: ntu.R
 
 ######################################################################
 
--include $(ms)/git.mk
--include $(ms)/visual.mk
+### Makestuff
 
--include $(ms)/wrapR.mk
-# -include $(ms)/oldlatex.mk
+Sources += Makefile
+
+## Sources += content.mk
+## include content.mk
+
+Ignore += makestuff
+msrepo = https://github.com/dushoff
+Makefile: makestuff/Makefile
+makestuff/Makefile:
+	git clone $(msrepo)/makestuff
+	ls $@
+
+-include makestuff/os.mk
+
+-include makestuff/wrapR.mk
+
+-include makestuff/git.mk
+-include makestuff/visual.mk
+-include makestuff/projdir.mk
