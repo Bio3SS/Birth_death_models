@@ -15,6 +15,9 @@ vim_session:
 
 Sources += $(wildcard *.R)
 
+bd.Rout: bd.R
+	$(wrapR)
+
 birth_response.Rout: bd.Rout birth_response.R
 size.Rout: bd.Rout size.R
 
@@ -43,7 +46,7 @@ makestuff/Makefile:
 
 -include makestuff/os.mk
 
--include makestuff/wrapR.mk
+-include makestuff/pipeR.mk
 
 -include makestuff/git.mk
 -include makestuff/visual.mk
