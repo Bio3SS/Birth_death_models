@@ -1,5 +1,3 @@
-# This stuff is not working since we are calling .Rout instead of .R. Not so clear why I'm not using it.
-# require(deSolve)
 # Device ask should be true if device is interactive
 # options(device.ask.default=grDevices::dev.interactive(orNone = TRUE))
 

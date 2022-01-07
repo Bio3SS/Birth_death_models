@@ -18,16 +18,30 @@ Sources += $(wildcard *.R)
 bd.Rout: bd.R
 	$(wrapR)
 
-birth_response.Rout: bd.Rout birth_response.R
-size.Rout: bd.Rout size.R
+birth_response.Rout: bd.rda birth_response.R
+	$(wrapR)
+
+size.Rout: bd.rda size.R
 
 delay_sims.Rout: delay.Rout delay_sims.R
 	$(run-R)
 
-%.bd.Rout: bd.Rout %.R
+## slow.bd.Rout-1.pdf:
+
+%.bd.Rout: bd.rda %.R
 	$(run-R)
 
 ntu.bd.Rout: ntu.R
+
+######################################################################
+
+logo.Rout.png: 
+logo.Rout: logo.R bd.rda
+	$(pipeR)
+
+Ignore += logo.png
+logo.png: logo.Rout.png Makefile
+	convert -crop 360x360+40+60 -scale 80% $< $@
 
 ######################################################################
 
@@ -47,6 +61,7 @@ makestuff/Makefile:
 -include makestuff/os.mk
 
 -include makestuff/pipeR.mk
+-include makestuff/pdfpages.mk
 
 -include makestuff/git.mk
 -include makestuff/visual.mk
