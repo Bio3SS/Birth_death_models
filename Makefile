@@ -35,6 +35,8 @@ ntu.bd.Rout: ntu.R
 
 ######################################################################
 
+## Attempt at a Teams logo (got confused and stopped 2022)
+
 logo.Rout.png: 
 logo.Rout: logo.R bd.rda
 	$(pipeR)
